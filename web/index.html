@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/mui.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/mui.css">
+</head>
+
+<body>
+    <button>收入</button><button>支出</button>
+    <form action="">
+        <label for="">金额</label><br>
+        <input type="money"><br><br>
+        <label for="">时间</label><br>
+        <input type="time"><br><br>
+        <label for="">备注</label><br>
+        <input type="text"><br><br>
+        <label for="">成员</label><br>
+        <input type="name">
+    </form>
+    <script>
+        mui.ajax({
+            url,
+            success(rs) {
+                // console.log(rs)
+                render(rs.code)
+            }
+        })
+
+        function render(data) {
+            const str = data.map((item) => {
+                return `<label for="">金额</label><br>
+                        <input type="money">${item.money}<br><br>
+                        <label for="">时间</label><br>
+                        <input type="text">${item.time}<br><br>
+                        <label for="">备注</label><br>
+                        <input type="text">${item.zhu}<br><br>
+                        <label for="">成员</label><br>
+                        <input type="name">${item.name}`;
+            }).join('')
+        }
+    </script>
+    <script src="js/mui.js"></script>
+    <script type="text/javascript">
+        mui.init()
+    </script>
+</body>
+
+</html>
